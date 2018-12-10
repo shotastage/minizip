@@ -45,14 +45,11 @@
 #include <time.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 
-#ifdef _WIN32
-# include <direct.h>
-# include <io.h>
-#else
-# include <unistd.h>
-# include <utime.h>
-#endif
+
+#include <unistd.h>
+#include <utime.h>
 
 
 #include "unzip.h"
@@ -80,7 +77,7 @@
     filename : the filename of the file where date/time must be modified
     dosdate : the new date at the MSDos format (4 bytes)
     tmu_date : the SAME new date at the tm_unz format */
-void change_file_date(filename,dosdate,tmu_date)
+static void change_file_date(filename,dosdate,tmu_date)
     const char *filename;
     uLong dosdate;
     tm_unz tmu_date;
@@ -97,7 +94,6 @@ void change_file_date(filename,dosdate,tmu_date)
   SetFileTime(hFile,&ftm,&ftLastAcc,&ftm);
   CloseHandle(hFile);
 #else
-#ifdef unix || __APPLE__
   struct utimbuf ut;
   struct tm newdate;
   newdate.tm_sec = tmu_date.tm_sec;
@@ -114,14 +110,13 @@ void change_file_date(filename,dosdate,tmu_date)
   ut.actime=ut.modtime=mktime(&newdate);
   utime(filename,&ut);
 #endif
-#endif
 }
 
 
 /* mymkdir and change_file_date are not 100 % portable
    As I don't know well Unix, I wait feedback for the unix portion */
 
-int mymkdir(dirname)
+static int mymkdir(dirname)
     const char* dirname;
 {
     int ret=0;
@@ -135,7 +130,7 @@ int mymkdir(dirname)
     return ret;
 }
 
-int makedir (newdir)
+static int makedir (newdir)
     char *newdir;
 {
   char *buffer ;
@@ -191,18 +186,6 @@ void do_banner()
     printf("more info at http://www.winimage.com/zLibDll/unzip.html\n\n");
 }
 
-void do_help()
-{
-    printf("Usage : miniunz [-e] [-x] [-v] [-l] [-o] [-p password] file.zip [file_to_extr.] [-d extractdir]\n\n" \
-           "  -e  Extract without pathname (junk paths)\n" \
-           "  -x  Extract with pathname\n" \
-           "  -v  list files\n" \
-           "  -l  list files\n" \
-           "  -d  directory to extract into\n" \
-           "  -o  overwrite files without prompting\n" \
-           "  -p  extract crypted file using password\n\n");
-}
-
 void Display64BitsSize(ZPOS64_T n, int size_char)
 {
   /* to avoid compatibility problem , we do here the conversion */
@@ -231,7 +214,7 @@ void Display64BitsSize(ZPOS64_T n, int size_char)
   printf("%s",&number[pos_string]);
 }
 
-int do_list(uf)
+static int do_list(uf)
     unzFile uf;
 {
     uLong i;
@@ -472,7 +455,7 @@ int do_extract_currentfile(uf,popt_extract_without_path,popt_overwrite,password)
 }
 
 
-int do_extract(uf,opt_extract_without_path,opt_overwrite,password)
+static int do_extract(uf,opt_extract_without_path,opt_overwrite,password)
     unzFile uf;
     int opt_extract_without_path;
     int opt_overwrite;
@@ -552,7 +535,6 @@ int main(argc,argv)
     do_banner();
     if (argc==1)
     {
-        do_help();
         return 0;
     }
     else

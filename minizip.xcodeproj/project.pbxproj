@@ -11,7 +11,6 @@
 		252D16F321BD8698000AF51B /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 252D16E521BD8697000AF51B /* unzip.c */; };
 		252D16F421BD8698000AF51B /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 252D16E621BD8697000AF51B /* ioapi.h */; };
 		252D16F521BD8698000AF51B /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 252D16E721BD8697000AF51B /* mztools.h */; };
-		252D16F621BD8698000AF51B /* minizip.c in Sources */ = {isa = PBXBuildFile; fileRef = 252D16E821BD8697000AF51B /* minizip.c */; };
 		252D16F821BD8698000AF51B /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 252D16EA21BD8697000AF51B /* zip.c */; };
 		252D16F921BD8698000AF51B /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 252D16EB21BD8697000AF51B /* zip.h */; };
 		252D16FA21BD8698000AF51B /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 252D16EC21BD8697000AF51B /* mztools.c */; };
@@ -28,7 +27,6 @@
 		252D16E521BD8697000AF51B /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = unzip.c; path = Sources/MiniZip/unzip.c; sourceTree = SOURCE_ROOT; };
 		252D16E621BD8697000AF51B /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = Sources/MiniZip/ioapi.h; sourceTree = SOURCE_ROOT; };
 		252D16E721BD8697000AF51B /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mztools.h; path = Sources/MiniZip/mztools.h; sourceTree = SOURCE_ROOT; };
-		252D16E821BD8697000AF51B /* minizip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = minizip.c; path = Sources/MiniZip/minizip.c; sourceTree = SOURCE_ROOT; };
 		252D16EA21BD8697000AF51B /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zip.c; path = Sources/MiniZip/zip.c; sourceTree = SOURCE_ROOT; };
 		252D16EB21BD8697000AF51B /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zip.h; path = Sources/MiniZip/zip.h; sourceTree = SOURCE_ROOT; };
 		252D16EC21BD8697000AF51B /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mztools.c; path = Sources/MiniZip/mztools.c; sourceTree = SOURCE_ROOT; };
@@ -73,7 +71,6 @@
 				252D16EE21BD8697000AF51B /* ioapi.c */,
 				252D16E621BD8697000AF51B /* ioapi.h */,
 				252D16ED21BD8697000AF51B /* miniunz.c */,
-				252D16E821BD8697000AF51B /* minizip.c */,
 				252D16EF21BD8698000AF51B /* module.modulemap */,
 				252D16EC21BD8697000AF51B /* mztools.c */,
 				252D16E721BD8697000AF51B /* mztools.h */,
@@ -172,7 +169,6 @@
 			files = (
 				252D16FC21BD8698000AF51B /* ioapi.c in Sources */,
 				252D16F821BD8698000AF51B /* zip.c in Sources */,
-				252D16F621BD8698000AF51B /* minizip.c in Sources */,
 				252D16FA21BD8698000AF51B /* mztools.c in Sources */,
 				252D16F321BD8698000AF51B /* unzip.c in Sources */,
 				252D16FB21BD8698000AF51B /* miniunz.c in Sources */,
