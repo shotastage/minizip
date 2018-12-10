@@ -15,5 +15,5 @@ FOUNDATION_EXPORT double minizipVersionNumber;
 FOUNDATION_EXPORT const unsigned char minizipVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <minizip/PublicHeader.h>
-#import "unzip.h"
-#import "zip.h"
+#import "../Sources/unzip.h"
+#import "../Sources/zip.h"
